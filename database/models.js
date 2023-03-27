@@ -1,5 +1,6 @@
 //Add models here, for example:
 //const User = require('./models/user')
+const Member = require('../api/models/member.model')
 
 
 
