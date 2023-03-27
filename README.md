@@ -14,7 +14,7 @@ Moreover we want to provide to their sponsors and volunteers a clearest envirorm
 - Volunteer.
 - Admin.
 
-- Sponsors companies.
+- Sponsors (companies).
 
 ## Objectives:
 
