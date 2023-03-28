@@ -11,8 +11,9 @@ const Donor = connection.define(
                 notEmpty: {
                     msg: 'Bank account cannot be empty',
                 },
-                isRegexMatch: {
-                    args: /^ES\d{2}\s\d{4}\s\d{4}\s\d{4}\s\d{4}\s\d{2}$/,
+                is: {
+                    args: /^[A-Z]{2}(?:[ ]?[0-9]){18,24}$/,
+
                     msg: 'Bank account has not a valid value',
                 },
             },
