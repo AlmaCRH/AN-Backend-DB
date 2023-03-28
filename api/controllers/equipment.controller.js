@@ -28,9 +28,7 @@ async function getOneEquipment(req, res) {
 
 async function createEquipment(req, res) {
     try {
-        const equipment = await Equipment.create({
-            firstName: req.body.firstName,
-        })
+        const equipment = await Equipment.create(req.body)
         return res.status(200).json({ message: 'Equipment created', equipment: equipment })
     } catch (error) {
         res.status(500).send(error.message)

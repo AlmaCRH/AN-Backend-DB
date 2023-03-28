@@ -54,13 +54,7 @@ const Project = connection.define(
         },
         status: {
             type: DataTypes.ENUM('acepted', 'denied', 'draft')
-        },
-        createdAt: {
-            type: DataTypes.STRING,
-            defaultValue: function () {
-                return new Date()
-            }
-		},
+        }
     },
 )
 

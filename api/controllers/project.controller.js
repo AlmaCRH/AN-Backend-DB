@@ -28,9 +28,7 @@ async function getOneProject(req, res) {
 
 async function createProject(req, res) {
     try {
-        const project = await Project.create({
-            firstName: req.body.firstName,
-        })
+        const project = await Project.create(req.body)
         return res.status(200).json({ message: 'Project created', project: project })
     } catch (error) {
         res.status(500).send(error.message)

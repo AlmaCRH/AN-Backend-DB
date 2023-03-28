@@ -2,7 +2,7 @@ const Professional = require('../models/professional.model')
 
 async function getAllProfessionals(req, res) {
     try {
-        const professionals = await Project.findAll({ paranoid: false })
+        const professionals = await Professional.findAll({ paranoid: false })
         if (professionals) {
             return res.status(200).json(professionals)
         } else {
@@ -28,9 +28,7 @@ async function getOneProfessional(req, res) {
 
 async function createProfessional(req, res) {
     try {
-        const professional = await Professional.create({
-            firstName: req.body.firstName,
-        })
+        const professional = await Professional.create(req.body)
         return res.status(200).json({ message: 'Professional created', professional: professional })
     } catch (error) {
         res.status(500).send(error.message)
