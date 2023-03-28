@@ -1,43 +1,41 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
-const Member = connection.define(
-	'member',
+const Project = connection.define(
+	'project',
 	{
-		name: {
+		target: {
 			type: DataTypes.STRING,
 			allowNull: false,
             validate: {
                 notEmpty: true
             }
 		},
-		lastname: {
+		description: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
-        email: {
+        objective: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-                is: {
-                    args: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    msg: "Error: Wrong email format."
-                }
+                notEmpty: true
             }
         },
-        password: {
-            type: DataTypes.STRING,
+        budget: {
+            type: DataTypes.DECIMAL,
         },
-        idNumber: {
-            type: DataTypes.INTEGER
+        collect: {
+            type: DataTypes.DECIMAL,
         },
-        phone: {
-			type: DataTypes.INTEGER,
+        deadline: {
+			type: DataTypes.DATE,
         },
-        adress: {
-            type: DataTypes.STRING
+        status: {
+            type: DataTypes.ENUM
         },
         createdAt: {
             type: DataTypes.STRING,
@@ -46,7 +44,6 @@ const Member = connection.define(
             }
 		},
     },
-    {updatedAt: false}
 )
 
 

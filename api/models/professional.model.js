@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
-const Member = connection.define(
-	'member',
+const Professional = connection.define(
+	'professional',
 	{
 		name: {
 			type: DataTypes.STRING,
@@ -11,44 +11,23 @@ const Member = connection.define(
                 notEmpty: true
             }
 		},
-		lastname: {
+        description: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
-        email: {
+        skill: {
             type: DataTypes.STRING,
+            allowNull: true,
             validate: {
-                is: {
-                    args: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    msg: "Error: Wrong email format."
-                }
+                notEmpty: true
             }
-        },
-        password: {
-            type: DataTypes.STRING,
-        },
-        idNumber: {
-            type: DataTypes.INTEGER
-        },
-        phone: {
-			type: DataTypes.INTEGER,
-        },
-        adress: {
-            type: DataTypes.STRING
-        },
-        createdAt: {
-            type: DataTypes.STRING,
-            defaultValue: function () {
-                return new Date()
-            }
-		},
+        }
     },
+    {createdAt: false },
     {updatedAt: false}
 )
-
-
 
 module.exports = Member
