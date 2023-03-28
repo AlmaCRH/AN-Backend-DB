@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-//const { } = require('../controllers/event_category.controller')
+const { } = require('../controllers/event_category.controller')
 
 
 router.get('/',)
