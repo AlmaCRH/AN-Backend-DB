@@ -1,7 +1,7 @@
 //process.stdout.write('\x1B[2J\x1B[0f')
 require('dotenv').config()
 const { checkConnection, syncModels } = require('./database/index')
-const addRelationsToModels = require('./database/models')
+const addRelationsToModels = require('./database/relations')
 
 const express = require('express')
 const cors = require('cors')
