@@ -58,6 +58,4 @@ const Project = connection.define(
     },
 )
 
-
-
 module.exports = Project
