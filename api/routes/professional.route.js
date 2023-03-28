@@ -1,12 +1,17 @@
 const router = require('express').Router()
 
-// const {  } = require('../controllers/professional.controller')
+const { 
+    getAllProfessionals,
+    getOneProfessional,
+    createProfessional,
+    updateProfessional,
+    deleteProfessional } = require('../controllers/professional.controller')
 
 
-router.get('/', )
-router.get('/:id', )
-router.post('/', )
-router.put('/:id', )
-router.delete('/:id', )
+router.get('/', getAllProfessionals)
+router.get('/:id', getOneProfessional)
+router.post('/', createProfessional)
+router.put('/:id', updateProfessional)
+router.delete('/:id', deleteProfessional)
 
 module.exports = router

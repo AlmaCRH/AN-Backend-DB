@@ -1,12 +1,17 @@
 const router = require('express').Router()
 
-// const {  } = require('../controllers/equipment.controller')
+const { 
+    getAllEquipments,
+    getOneEquipment,
+    createEquipment,
+    updateEquipment,
+    deleteEquipment } = require('../controllers/equipment.controller')
 
 
-router.get('/', )
-router.get('/:id', )
-router.post('/', )
-router.put('/:id', )
-router.delete('/:id', )
+router.get('/', getAllEquipments)
+router.get('/:id', getOneEquipment)
+router.post('/', createEquipment)
+router.put('/:id', updateEquipment)
+router.delete('/:id', deleteEquipment)
 
 module.exports = router
