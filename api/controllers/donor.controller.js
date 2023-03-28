@@ -1,69 +1,69 @@
-const Member = require('../models/member.model')
+const Donor = require('../models/donor.model')
 
-async function getAllMembers(req, res) {
+async function getAllDonors(req, res) {
     try {
-        const member = await Member.findAll({ paranoid: false })
-        if (member) {
-            return res.status(200).json(member)
+        const donor = await Donor.findAll({ paranoid: false })
+        if (donor) {
+            return res.status(200).json(donor)
         } else {
-            return res.status(404).send('No Members found')
+            return res.status(404).send('No Donors found')
         }
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
 
-async function getOneMember(req, res) {
+async function getOneDonor(req, res) {
     try {
-        const member = await Member.findByPk(req.params.id)
-        if (member) {
-            return res.status(200).json(member)
+        const donor = await Donor.findByPk(req.params.id)
+        if (donor) {
+            return res.status(200).json(donor)
         } else {
-            return res.status(404).send('Member not found')
+            return res.status(404).send('Donor not found')
         }
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
 
-async function createMember(req, res) {
+async function createDonor(req, res) {
     try {
-        const member = await Member.create(req.body)
-        return res.status(200).json({ message: 'Member created', member: member })
+        const donor = await Donor.create(req.body)
+        return res.status(200).json({ message: 'Donor created', donor: donor })
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
 
-async function updateMember(req, res) {
+async function updateDonor(req, res) {
     try {
-        const [memberExist, member] = await Member.update(req.body, {
+        const [donorExist, donor] = await Donor.update(req.body, {
             returning: true,
             where: {
                 id: req.params.id,
             },
         })
-        if (memberExist !== 0) {
-            return res.status(200).json({ message: 'Member updated', member: member })
+        if (donorExist !== 0) {
+            return res.status(200).json({ message: 'Donor updated', donor: donor })
         } else {
-            return res.status(404).send('Member not found')
+            return res.status(404).send('Donor not found')
         }
     } catch (error) {
         return res.status(500).send(error.message)
     }
 }
 
-async function deleteMember(req, res) {
+async function deleteDonor(req, res) {
     try {
-        const member = await Member.destroy({
+        const donor = await Donor.destroy({
             where: {
                 id: req.params.id,
             },
         })
-        if (member) {
-            return res.status(200).json('Member deleted')
+        if (donor) {
+            return res.status(200).json('Donor deleted')
         } else {
-            return res.status(404).send('Member not found')
+            return res.status(404).send('Donor not found')
         }
     } catch (error) {
         return res.status(500).send(error.message)
@@ -74,9 +74,9 @@ async function deleteMember(req, res) {
 
 
 module.exports = {
-    getAllMembers,
-    deleteMember,
-    updateMember,
-    createMember,
-    getOneMember
+    getAllDonors,
+    deleteDonor,
+    updateDonor,
+    createDonor,
+    getOneDonor
 }

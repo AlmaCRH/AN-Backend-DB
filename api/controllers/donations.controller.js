@@ -1,69 +1,69 @@
-const Member = require('../models/member.model')
+const Donations = require('../models/donations.model')
 
-async function getAllMembers(req, res) {
+async function getAllDonations(req, res) {
     try {
-        const member = await Member.findAll({ paranoid: false })
-        if (member) {
-            return res.status(200).json(member)
+        const donation = await Donations.findAll({ paranoid: false })
+        if (donation) {
+            return res.status(200).json(donation)
         } else {
-            return res.status(404).send('No Members found')
+            return res.status(404).send('No Donations found')
         }
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
 
-async function getOneMember(req, res) {
+async function getOneDonation(req, res) {
     try {
-        const member = await Member.findByPk(req.params.id)
-        if (member) {
-            return res.status(200).json(member)
+        const donation = await Donations.findByPk(req.params.id)
+        if (donation) {
+            return res.status(200).json(donation)
         } else {
-            return res.status(404).send('Member not found')
+            return res.status(404).send('Donation not found')
         }
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
 
-async function createMember(req, res) {
+async function createDonation(req, res) {
     try {
-        const member = await Member.create(req.body)
-        return res.status(200).json({ message: 'Member created', member: member })
+        const donation = await Donations.create(req.body)
+        return res.status(200).json({ message: 'Donation created', donation: donation })
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
 
-async function updateMember(req, res) {
+async function updateDonation(req, res) {
     try {
-        const [memberExist, member] = await Member.update(req.body, {
+        const [donationExist, donation] = await Donations.update(req.body, {
             returning: true,
             where: {
                 id: req.params.id,
             },
         })
-        if (memberExist !== 0) {
-            return res.status(200).json({ message: 'Member updated', member: member })
+        if (donationExist !== 0) {
+            return res.status(200).json({ message: 'Donation updated', donation })
         } else {
-            return res.status(404).send('Member not found')
+            return res.status(404).send('Donation not found')
         }
     } catch (error) {
         return res.status(500).send(error.message)
     }
 }
 
-async function deleteMember(req, res) {
+async function deleteDonation(req, res) {
     try {
-        const member = await Member.destroy({
+        const donation = await Donations.destroy({
             where: {
                 id: req.params.id,
             },
         })
-        if (member) {
-            return res.status(200).json('Member deleted')
+        if (donation) {
+            return res.status(200).json('Donation deleted')
         } else {
-            return res.status(404).send('Member not found')
+            return res.status(404).send('Donation not found')
         }
     } catch (error) {
         return res.status(500).send(error.message)
@@ -74,9 +74,9 @@ async function deleteMember(req, res) {
 
 
 module.exports = {
-    getAllMembers,
-    deleteMember,
-    updateMember,
-    createMember,
-    getOneMember
+    getAllDonations,
+    deleteDonation,
+    updateDonation,
+    createDonation,
+    getOneDonation
 }
