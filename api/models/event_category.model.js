@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
-const EventCategorie = connection.define (
-    'event_categorie',
+const EventCategory = connection.define (
+    'event_category',
     {
         name: {
             type: DataTypes.STRING,
@@ -15,4 +15,4 @@ const EventCategorie = connection.define (
     { updatedAt: false }
 )
 
-module.exports = EventCategorie
+module.exports = EventCategory

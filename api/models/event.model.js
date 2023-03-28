@@ -26,21 +26,21 @@ const Event = connection.define(
             }
         }, 
         start_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         end_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         registered_at: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             defaultValue: function () {
                 return new Date()
             }

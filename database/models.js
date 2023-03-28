@@ -1,6 +1,11 @@
 //Add models here, for example:
-//const User = require('./models/user')
 const Member = require('../api/models/member.model')
+const Event = require('../api/models/event.model')
+const EventCategory = require('../api/models/event_category.model')
+const Product = require('../api/models/product.model')
+
+
+
 
 // Event_categorie_id
 /* EventCategories.hasMany(Event)

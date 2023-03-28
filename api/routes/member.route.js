@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const {  } = require('../controllers/member.controller')
+//const {  } = require('../controllers/member.controller')
 
 
 router.get('/', )
