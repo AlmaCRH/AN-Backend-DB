@@ -11,7 +11,9 @@ const Professional = require('../api/models/professional.model')
 const Project = require('../api/models/project.model')
 
 
-
+const Donor = require('../api/models/donor.model')
+const Volunteer = require('../api/models/volunteer.model')
+const Donations = require('../api/models/donations.model')
 
 
 // Event_categorie_id
