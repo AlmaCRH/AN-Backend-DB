@@ -8,21 +8,27 @@ const Professional = connection.define(
 			type: DataTypes.STRING,
 			allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: {
+                    msg: 'Name cannot be empty'
+                }
             }
 		},
         description: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: {
+                    msg: 'Description cannot be empty'
+                }
             }
         },
         skill: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: {
+                    msg: 'Skill cannot be empty'
+                }
             }
         }
     },
