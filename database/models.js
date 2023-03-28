@@ -1,8 +1,15 @@
 //Add models here, for example:
+
 const Member = require('../api/models/member.model')
 const Event = require('../api/models/event.model')
 const EventCategory = require('../api/models/event_category.model')
 const Product = require('../api/models/product.model')
+
+//const User = require('./models/user')
+const Equipment = require('../api/models/equipment.model')
+const Professional = require('../api/models/professional.model')
+const Project = require('../api/models/project.model')
+
 
 
 
