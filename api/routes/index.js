@@ -11,6 +11,10 @@ router.use('/equipment', require('./equipment.route'))
 router.use('/professional', require('./professional.route'))
 router.use('/project', require('./project.route'))
 
+router.use('/donor', require('./donor.route'))
+router.use('/volunteer', require('./volunteer.route'))
+router.use('/donations', require('./donations.route'))
+
 //Here the routes
 
 module.exports = router
