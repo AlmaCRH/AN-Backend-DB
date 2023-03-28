@@ -31,5 +31,3 @@ async function startAPI() {
 }
 
 startAPI()
-
-//this is a test
