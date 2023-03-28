@@ -31,11 +31,11 @@ function addRelationsToModels() {
 
 		//Members_Doners
 		Member.hasOne(Donor)
-		Donor.belongsTo(Member)
+		Donor.hasOne(Member)
 
 		//Members_Volunteers
 		Member.hasOne(Volunteer)
-		Volunteer.belongsTo(Member)
+		Volunteer.hasOne(Member)
 
 		//Donors_donations
 		Donor.hasMany(Donations)
