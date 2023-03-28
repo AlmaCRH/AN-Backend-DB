@@ -1,17 +1,12 @@
 const router = require('express').Router()
 
-const { 
-    getAllVolunteer,
-    deleteVolunteer,
-    updateVolunteer,
-    createVolunteer,
-    getOneVolunteer } = require('../controllers/volunteer.controller')
+//const {  } = require('../controllers/member.controller')
 
 
-router.get('/', getAllVolunteer)
-router.get('/:id', getOneVolunteer)
-router.post('/', createVolunteer)
-router.put('/:id', updateVolunteer)
-router.delete('/:id', deleteVolunteer)
+router.get('/', )
+router.get('/:id', )
+router.post('/', )
+router.put('/:id', )
+router.delete('/:id', )
 
 module.exports = router
