@@ -16,18 +16,75 @@ const Volunteer = require('../api/models/volunteer.model')
 const Donations = require('../api/models/donations.model')
 
 
-// Event_categorie_id
-/* EventCategories.hasMany(Event)
-Event.belongsTo(EventCategories) */
 
-//Donation_id
-/* Product.hasMany(Donation)
-Donation.belongsTo(Product) */
 
 
 function addRelationsToModels() {
 	try {
-        //Add relations here
+        // Event_category_id
+		EventCategory.hasMany(Event)
+		Event.belongsTo(EventCategory)
+
+		//Donation_Product
+		Product.hasMany(Donations)
+		Donations.belongsTo(Product)
+
+		//Members_Doners
+		Member.hasOne(Donor)
+		Donor.hasOne(Member)
+
+		//Members_Volunteers
+		Member.hasOne(Volunteer)
+		Volunteer.hasOne(Member)
+
+		//Donors_donations
+		Donor.hasMany(Donations)
+		Donations.belongsTo(Donor)
+
+
+		// Volunteers_Professionals
+		Professional.hasMany(Volunteer)
+		Volunteer.belongsTo(Professional)
+
+		//Volunteer_Event
+		Volunteer.belongsToMany(Event, {
+			through: 'volunteer_event'
+		})
+		Event.belongsToMany(Volunteer, {
+			through: 'volunteer_event'
+		})
+
+		//Volunteer_Project
+		Volunteer.belongsToMany(Project, {
+			through: 'volunteer_project'
+		})
+		Project.belongsToMany(Volunteer, {
+			through: 'volunteer_project'
+		})
+
+		//Donations_Projects
+		Project.belongsToMany(Donations, {
+			through: 'donations_projects'
+		})
+		Donations.belongsToMany(Project, {
+			through: 'donations_projects'
+		})
+
+		//Professionals_Projects
+		Project.belongsToMany(Professional, {
+			through: 'professional_projects'
+		})
+		Professional.belongsToMany(Project, {
+			through: 'professional_projects'
+		})
+
+		//Projects_Equipments
+		Project.belongsToMany(Equipment, {
+			through: 'equipment_projects'
+		})
+		Equipment.belongsToMany(Project, {
+			through: 'equipment_projects'
+		})
 		console.log('Relations added to all models')
 	} catch (error) {
 		throw error
