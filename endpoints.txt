@@ -12,7 +12,7 @@
 | GET    | /members                  | YES   | Admin | Get all users                | -                          | [{ member }]                         |
 | GET    | /members/:memberId        | YES   | Admin/Donor/Volunteer | Get one user | member_id                  | { member }                           |
 | PUT    | /members/:memberId        | YES   | Admin/Donor/Volunteer  | Update user | member_id                  | "Member updated"                     |
-| POST 	| /members                  | YES   | Admin/Donor/Volunteer  | Create one user | req.body               | "Member created"                     |
+| POST   | /members                  | YES   | Admin/Donor/Volunteer  | Create one user | req.body               | "Member created"                     |
 | DELETE | /members/:memberId        | YES   | Admin/Donor/Volunteer  | Remove one user | member_id | "Member deleted"                                  |
 
 ### Donors Endpoints
@@ -34,14 +34,14 @@
 | GET    | /projects                  | N/A   | All | Get all projects             | -                          | [{ projects }]                      |
 | GET    | /projects/:projectId       | N/A   | All | Get one project              | projects_id                | { project }                         |
 | PUT    | /projects/:projectsId      | YES   | Admin | Update project             | projects_id                | "Project updated"                   |
-| POST 	| /projects                  | YES   | Admin/Volunteer | Create one project| req.body                  | "Project created"                   |
+| POST   | /projects                  | YES   | Admin/Volunteer | Create one project| req.body                  | "Project created"                   |
 | DELETE | /projects/:id              | YES   | Admin | Remove one project         | projects_id                | "Project deleted"                   |
 
 ### Events Endpoints
 | GET    | /events                    | N/A   | All | Get all events               | -                          | [{ events }]                        |
 | GET    | /events/:eventId           | N/A   | All | Get one event                | events_id                  | { event }                           |
 | PUT    | /events/:eventsId          | YES   | Admin | Update event               | events_id                  | "Event updated"                     |
-| POST 	| /events                    | YES   | Admin | Create one event           | req.body                   | "Event created"                     |
+| POST   | /events                    | YES   | Admin | Create one event           | req.body                   | "Event created"                     |
 | DELETE | /events/:id                | YES   | Admin | Remove one event           | events_id                  | "Event deleted"                     |
 
 
@@ -51,7 +51,7 @@
 | GET    | /equipment/:equipmentId    | YES   | Admin | Get one equipment        | equipment_id               | { equipment }                          |
 | PUT    | /equipment/:equipmentId    | YES   | Admin | Update equipment         | equipment_id               | "Equipment updated"                    |
 | DELETE | /equipment/:equipmentId    | YES   | Admin | Remove one donors        | donor_id                   | "Profile deleted"                      |
-| POST 	| /equipment                 | YES   | Admin/Volunteer| Create one equipment| req.body               | "Equipment created"                    |
+| POST   | /equipment                 | YES   | Admin/Volunteer| Create one equipment| req.body               | "Equipment created"                    |
 | DELETE | /equipment/:equipmentId    | YES   | Admin | Remove one equipment     | equipment_id               | "Equipment deleted"                    |
 
 
@@ -59,7 +59,7 @@
 | GET    | /products                  | N/A   | All | Get all products           | -                            [{ products }]                          |
 | GET    | /products/:productId       | N/A   | All | Get one product            | product_id                  | { product }                            |
 | PUT    | /products/:productId       | YES   | Admin | Update product           | product_id                  | "Product updated"                      |
-| POST 	| /products                  | YES   | Admin | Create one product       | req.body                    | "Product created"                      |
+| POST   | /products                  | YES   | Admin | Create one product       | req.body                    | "Product created"                      |
 | DELETE | /products/:id              | YES   | Admin | Remove one product       | product_id                  | "Product deleted"                      |
 
 ### Donations Endpoints
@@ -67,7 +67,7 @@
 | GET    | /donations                 | YES   | Admin/Donor | Get all donations  | -                           | [{ donations }]                        |
 | GET    | /donations/:donationId     | YES   | Admin/Donor | Get one donation   | donation_id                 | { donation }                           |
 | PUT    | /donations/:donationId     | YES   | Admin | Update donation          | donation_id                 | "Donation updated"                     |
-| POST 	| /donations                 | YES   | Admin/Donor | Create one donation| req.body                    | "Donation created"                     |
+| POST   | /donations                 | YES   | Admin/Donor | Create one donation| req.body                    | "Donation created"                     |
 | DELETE | /donations/:id             | YES   | Admin | Remove one donation      | donation_id                 | "Donation deleted"                     |
 
 | PUT    | /donors/:memberId          | YES   | Admin | Update donor             | donor_id                    | "Donor updated"                        |
@@ -77,7 +77,7 @@
 | GET    | /professionals             | YES   | Admin | Get all professionals     | -                          | [{ professionals }]                    |
 | GET    | /professionals/:professionalId| YES| Admin | Get one professional      | professionalId             | { donation }                           |
 | PUT    | /professionals/:professionalId| YES| Admin | Update professional       | professionalId             | "Professional updated"                 |
-| POST 	| /professionals             | YES   | Admin | Create one professional   | req.body                   | "Professional created"                 |
+| POST   | /professionals             | YES   | Admin | Create one professional   | req.body                   | "Professional created"                 |
 | DELETE | /professionals/:id         | YES   | Admin | Remove one professional   | professionalId             | "Professional deleted"                 |
 
 ###########################################################################################################################################################
