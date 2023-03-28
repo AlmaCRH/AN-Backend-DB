@@ -35,7 +35,7 @@ const Project = connection.define(
 			type: DataTypes.DATE,
         },
         status: {
-            type: DataTypes.ENUM
+            type: DataTypes.ENUM('acepted', 'denied', 'draft')
         },
         createdAt: {
             type: DataTypes.STRING,
@@ -48,4 +48,4 @@ const Project = connection.define(
 
 
 
-module.exports = Member
+module.exports = Project

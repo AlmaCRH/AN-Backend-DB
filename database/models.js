@@ -1,6 +1,8 @@
 //Add models here, for example:
 //const User = require('./models/user')
-const Member = require('../api/models/member.model')
+const Equipment = require('../api/models/equipment.model')
+const Professional = require('../api/models/professional.model')
+const Project = require('../api/models/project.model')
 
 
 

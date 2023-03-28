@@ -30,4 +30,4 @@ const Professional = connection.define(
     {updatedAt: false}
 )
 
-module.exports = Member
+module.exports = Professional

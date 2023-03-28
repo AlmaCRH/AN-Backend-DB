@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
-const Professional = connection.define(
-	'professional',
+const Equipment = connection.define(
+	'equipment',
 	{
 		name: {
 			type: DataTypes.STRING,
@@ -30,4 +30,4 @@ const Professional = connection.define(
     {updatedAt: false}
 )
 
-module.exports = Member
+module.exports = Equipment
