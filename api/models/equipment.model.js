@@ -8,21 +8,27 @@ const Equipment = connection.define(
 			type: DataTypes.STRING,
 			allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: {
+                    msg: 'Name cannot be empty'
+                }
             }
 		},
         description: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: {
+                    msg: 'Description cannot be empty'
+                }
             }
         },
         cost: {
             type: DataTypes.DECIMAL,
-            allowNull: true,
+            allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: {
+                    msg: 'Cost cannot be empty'
+                }
             }
         }
     },
