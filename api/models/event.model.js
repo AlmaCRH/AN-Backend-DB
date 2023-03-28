@@ -8,35 +8,40 @@ const Event = connection.define(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                msg: 'Please, don\'t leave the field empty'
             }
         },
         description: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                msg: 'Please, add a brief description of the event'
             }
         },
         address: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                msg: 'Provide an address where arrange the event'
             }
         }, 
         start_date: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                msg: 'Add a date to start for the event'
             }
         },
         end_date: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                msg: 'Please, add the end date for the event'
             }
         },
         registered_at: {

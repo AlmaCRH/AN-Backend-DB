@@ -8,7 +8,8 @@ const EventCategory = connection.define (
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                msg: 'Please, don\'t leave the field empty'
             }
         }
     },
