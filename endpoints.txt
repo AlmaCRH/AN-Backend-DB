@@ -10,10 +10,10 @@
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /members                  | YES   | Admin | Get all users                | -                          | [{ member }]                         |
-| GET    | /members/:memberId        | YES   | Admin/Donor/Volunteer | Get one user | member_id                  | { member }                           |
-| PUT    | /members/:memberId        | YES   | Admin/Donor/Volunteer  | Update user | member_id                  | "Member updated"                     |
-| POST   | /members                  | YES   | Admin/Donor/Volunteer  | Create one user | req.body               | "Member created"                     |
-| DELETE | /members/:memberId        | YES   | Admin/Donor/Volunteer  | Remove one user | member_id | "Member deleted"                                  |
+| GET    | /members/:memberId        | YES   | Members | Get one user               | member_id                  | { member }                           |
+| PUT    | /members/:memberId        | YES   | Members | Update user                | member_id                  | "Member updated"                     |
+| POST   | /members                  | YES   | Members | Create one user            | req.body                   | "Member created"                     |
+| DELETE | /members/:memberId        | YES   | Members | Remove one user            | member_id                  | "Member deleted"                     |
 
 ### Donors Endpoints
 | GET    | /donors                   | YES   | Admin | Get all donors | -               | [{ donors }]           |
