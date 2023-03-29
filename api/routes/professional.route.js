@@ -11,7 +11,7 @@ const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('
 
 router.get('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getAllProfessionals)
 router.get('/:id', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getOneProfessional)
-router.post('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, createProfessional)
+router.post('/', checkAuth, createProfessional)
 router.put('/:id',checkAuth, checkAdmin, updateProfessional)
 router.delete('/:id', checkAuth, checkAdmin, deleteProfessional)
 

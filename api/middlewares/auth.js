@@ -2,10 +2,8 @@ const jwt = require('jsonwebtoken')
 const Member = require('../models/member.model')
 
 const checkAuth = (req, res, next) => {
-
     const token = req.headers.token
-
-    jwt.verify(token,process.env.SECRET , async (err , payload ) => {
+    jwt.verify(token,'secret' , async (err , payload ) => {
         if(err) {
             return res.status(400).send('Token not found')
         }
