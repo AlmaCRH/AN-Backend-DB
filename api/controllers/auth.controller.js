@@ -1,6 +1,8 @@
 const Member = require('../models/member.model')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const Donor = require('../models/donor.model')
+const Volunteer = require('../models/volunteer.model')
 
 const signUp = async (req, res) => {
     try {
@@ -9,6 +11,12 @@ const signUp = async (req, res) => {
             return res.status(500).json('Ande vas primo')
         }
         const member = await Member.create(req.body)
+        if (req.body.role === 'donor') {
+            await member.createDonor()
+        }
+        if (req.body.role === 'volunteer') {
+            await member.createVolunteer()
+        }
         return res.status(200).json(member)
     } catch (error) {
         console.error(error)

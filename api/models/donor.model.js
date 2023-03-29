@@ -6,27 +6,15 @@ const Donor = connection.define(
 	{
 		bank_account: {
 			type: DataTypes.STRING,
-			allowNull: false,
+			allowNull: true,
             validate: {
-                notEmpty: {
-                    msg: 'Bank account cannot be empty',
-                },
                 is: {
                     args: /^[A-Z]{2}(?:[ ]?[0-9]){18,24}$/,
 
                     msg: 'Bank account has not a valid value',
                 },
             },
-		},
-		member_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                notEmpty: {
-                    msg: 'Member id cannot be empty'
-                }
-            }
-        }
+		}
     }
 )
 
