@@ -71,6 +71,55 @@ async function deleteMember(req, res) {
 }
 
 
+async function getMyMember(req, res) {
+    try {
+        const member = await Member.findByPk(res.locals.member.id)
+        if (member) {
+            return res.status(200).json(member)
+        } else {
+            return res.status(404).send('Member not found')
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
+
+
+
+async function updateMyMember(req, res) {
+    try {
+        const [memberExist, member] = await Member.update(req.body, {
+            returning: true,
+            where: {
+                id: res.locals.member.id,
+            },
+        })
+        if (memberExist !== 0) {
+            return res.status(200).json({ message: 'Member updated', member: member })
+        } else {
+            return res.status(404).send('Member not found')
+        }
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
+async function deleteMyMember(req, res) {
+    try {
+        const member = await Member.destroy({
+            where: {
+                id: res.locals.member.id,
+            },
+        })
+        if (member) {
+            return res.status(200).json('Member deleted')
+        } else {
+            return res.status(404).send('Member not found')
+        }
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
 
 
 module.exports = {
@@ -78,5 +127,8 @@ module.exports = {
     deleteMember,
     updateMember,
     createMember,
-    getOneMember
+    getOneMember,
+    getMyMember,
+    updateMyMember,
+    deleteMyMember
 }
