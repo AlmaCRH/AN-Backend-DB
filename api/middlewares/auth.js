@@ -13,7 +13,9 @@ const checkAuth = (req, res, next) => {
             {
                 email: payload.email
             }})
-            if(!user) {
+            
+            res.locals.member = member
+            if(!member) {
                 return res.status(400).send('Invalid token')
             }
             next()
@@ -62,5 +64,5 @@ module.exports = {
     checkAdmin,
     checkVolunteerDonor,
     checkVolunteer,
-    checkDonor
+    checkDonor,
 }
