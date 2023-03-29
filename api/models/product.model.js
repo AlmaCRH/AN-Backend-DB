@@ -7,6 +7,7 @@ const Product = connection.define(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 notEmpty: {
                     msg: 'Please, don\'t leave the field empty'
