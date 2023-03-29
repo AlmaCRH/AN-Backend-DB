@@ -14,25 +14,24 @@ Moreover we want to provide to their sponsors and volunteers a clearest envirorm
 - Volunteer.
 - Admin.
 
-- Sponsors (companies).
-
 ## Objectives:
 
+- Support.
 - Transparecy.
 - Information.
 - Conciousness.
 
 ## Development objectives.
 
+- Improve donation and fundraising system.
 - Register of new donors and volunteers.
 - New projects catalogue.
 - Companies sponsorship.
 - Events and proyects calendars.
-- Improve donation and fundraising system.
 - Volunteer job listing.
 - Transparency web page.
 
-##ENDPOINTS
+## ENDPOINTS.
 
 ### Auth Endpoints
 
