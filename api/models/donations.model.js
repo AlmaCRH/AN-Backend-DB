@@ -19,13 +19,7 @@ const Donations = connection.define(
                     msg: 'Type cannot be empty'
                 }
             }
-        },
-        createdAt: {
-            type: DataTypes.STRING,
-            defaultValue: function () {
-                return new Date()
-            }
-		},
+        }
     }
 )
 

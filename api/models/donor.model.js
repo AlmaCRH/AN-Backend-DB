@@ -26,13 +26,7 @@ const Donor = connection.define(
                     msg: 'Member id cannot be empty'
                 }
             }
-        },
-        createdAt: {
-            type: DataTypes.STRING,
-            defaultValue: function () {
-                return new Date()
-            }
-		},
+        }
     }
 )
 
