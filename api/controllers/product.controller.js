@@ -18,7 +18,6 @@ async function getAllProducts(req, res) {
 async function getOneProduct(req, res) {
     try {
         const product = await Product.findByPk(req.params.productId)
-
         if (product) {
             return res.status(200).json(product)
         } else {

@@ -29,7 +29,7 @@ const checkAuth = (req, res, next) => {
 }
 
 const checkDonor = (req, res, next) => {
-    if (res.locals.member.role === 'donor') {
+    if (res.locals.member.role === 'donor' || res.locals.member.role === 'admin') {
         next()
     } else {
         res.status(401).send('This is just for Donors!')
@@ -38,7 +38,7 @@ const checkDonor = (req, res, next) => {
 
 
 const checkVolunteer = (req, res, next) => {
-    if (res.locals.member.role === 'volunteer') {
+    if (res.locals.member.role === 'volunteer'|| res.locals.member.role === 'admin') {
         next()
         }
      else {

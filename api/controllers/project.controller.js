@@ -1,4 +1,8 @@
 const Project = require('../models/project.model')
+const Volunteer = require('../models/volunteer.model')
+const Professional = require('../models/professional.model')
+
+
 
 async function getAllProjects(req, res) {
     try {
@@ -29,6 +33,14 @@ async function getOneProject(req, res) {
 async function createProject(req, res) {
     try {
         const project = await Project.create(req.body)
+        const volunteer = await Volunteer.findByPk(req.body.volunteerId)
+        await project.addVolunteer(volunteer)
+        const professional = await Professional.findOne({
+            where: {
+                name: req.body.profession
+            }
+        })
+        await project.addProfessional(professional)
         return res.status(200).json({ message: 'Project created', project: project })
     } catch (error) {
         res.status(500).send(error.message)

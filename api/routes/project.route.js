@@ -12,7 +12,7 @@ const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('
 
 router.get('/', getAllProjects)
 router.get('/:id', getOneProject)
-router.post('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, createProject)
+router.post('/', checkAuth, checkVolunteer, createProject)
 router.put('/:id', checkAuth, checkAdmin, updateProject)
 router.delete('/:id', checkAuth, checkAdmin, deleteProject)
 

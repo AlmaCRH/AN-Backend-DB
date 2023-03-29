@@ -8,17 +8,17 @@ const {
     getOneDonation,
     getMyDonations
  } = require('../controllers/donations.controller')
-const { checkAdmin, checkAuth } = require('../middlewares/auth')
+const { checkAdmin, checkAuth, checkDonor } = require('../middlewares/auth')
+
+//Donors
+router.get('/myDonations', checkAuth, checkDonor, getMyDonations)
 
 //Admin
 router.get('/',checkAuth, checkAdmin, getAllDonations)
 router.get('/:id', checkAuth, checkAdmin, getOneDonation)
-router.post('/',checkAuth, createDonation)
+router.post('/',checkAuth,checkDonor, createDonation)
 router.put('/:id', checkAuth, checkAdmin, updateDonation)
 router.delete('/:id', checkAuth, checkAdmin, deleteDonation)
-
-//Donor
-router.get('/', checkAuth, checkAdmin, getMyDonations)
 
 
 

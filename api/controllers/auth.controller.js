@@ -16,20 +16,18 @@ const signUp = async (req, res) => {
         if (req.body.role === 'donor') {
             await member.createDonor()
         }
-        console.log(member)
         const profession = req.body.profession;
-        if (req.body.role === 'volunteer') {
-            const professional = await Proffesional.findAll({
-                where: {
+        const professional = await Proffesional.findAll({
+            where: {
                 name: profession
-                }
-            });
+            }
+        })
+        if (req.body.role === 'volunteer') {
             await member.createVolunteer({
                 memberId: member.id, 
                 professionalId: professional[0].id
             });
         }
-
         return res.status(200).json(member)
     } catch (error) {
         console.error(error)

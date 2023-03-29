@@ -1,4 +1,7 @@
 const Event = require('../models/event.model')
+const EventCategory = require('../models/event_category.model')
+const Volunteer = require('../models/volunteer.model')
+
 
 async function getAllEvents(req, res) {
     try {
@@ -50,7 +53,10 @@ async function updateEvent(req, res) {
 
 async function createEvent(req, res) {
     try {
+        //const eventCategory = await EventCategory.findAll()
         const event = await Event.create(req.body)
+        const volunteer = await Volunteer.findByPk(req.body.volunteerId);
+        await event.addVolunteer(volunteer);
         if (event) {
             return res.status(200).json({message: 'Event created', event: event})
 
