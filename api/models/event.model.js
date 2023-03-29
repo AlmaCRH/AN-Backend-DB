@@ -54,8 +54,7 @@ const Event = connection.define(
                 
             }
         },
-    },
-    { updatedAt: false }
+    }
 )
 
 module.exports = Event

@@ -7,12 +7,13 @@ const {
     updateProject,
     deleteProject
  } = require('../controllers/project.controller')
+const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('../middlewares/auth')
 
 
 router.get('/', getAllProjects)
 router.get('/:id', getOneProject)
-router.post('/', createProject)
-router.put('/:id', updateProject)
-router.delete('/:id', deleteProject)
+router.post('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, createProject)
+router.put('/:id', checkAuth, checkAdmin, updateProject)
+router.delete('/:id', checkAuth, checkAdmin, deleteProject)
 
 module.exports = router

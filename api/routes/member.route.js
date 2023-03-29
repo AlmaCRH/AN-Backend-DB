@@ -5,12 +5,13 @@ const { getAllMembers,
     updateMember,
     createMember,
     getOneMember } = require('../controllers/member.controller')
+const { checkAuth, checkAdmin, checkDonor, checkVolunteer, checkVolunteerDonor } = require('../middlewares/auth')
 
 
-router.get('/', getAllMembers)
-router.get('/:id', getOneMember)
-router.post('/', createMember)
-router.put('/:id', updateMember)
-router.delete('/:id', deleteMember)
+router.get('/', checkAuth, checkAdmin, getAllMembers)
+router.get('/:id', checkAuth, checkAdmin, checkDonor, checkVolunteer, checkVolunteerDonor, getOneMember)
+router.post('/', checkAuth, checkAdmin, createMember)
+router.put('/:id', checkAuth, checkAdmin, checkDonor, checkVolunteer, checkVolunteerDonor,  updateMember)
+router.delete('/:id', checkAuth, checkAdmin, checkDonor, checkVolunteer, checkVolunteerDonor, deleteMember)
 
 module.exports = router
