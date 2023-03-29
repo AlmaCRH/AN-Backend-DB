@@ -72,11 +72,29 @@ async function deleteDonation(req, res) {
 
 
 
+async function getMyDonations(req, res) {
+    try {
+        const donations = await Donations.findAll({
+            where: res.locals.donations.donorId
+        })
+        if (donations) {
+            return res.status(200).json(donations)
+        } else {
+            return res.status(404).send('No Donations found')
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
+
+
+
 
 module.exports = {
     getAllDonations,
     deleteDonation,
     updateDonation,
     createDonation,
-    getOneDonation
+    getOneDonation,
+    getMyDonations
 }
