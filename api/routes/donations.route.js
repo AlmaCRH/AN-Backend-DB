@@ -1,12 +1,18 @@
 const router = require('express').Router()
 
-//const {  } = require('../controllers/member.controller')
+const { 
+    getAllDonations,
+    deleteDonation,
+    updateDonation,
+    createDonation,
+    getOneDonation
+ } = require('../controllers/donations.controller')
 
 
-router.get('/', )
-router.get('/:id', )
-router.post('/', )
-router.put('/:id', )
-router.delete('/:id', )
+router.get('/', getAllDonations)
+router.get('/:id', getOneDonation)
+router.post('/', createDonation)
+router.put('/:id', updateDonation)
+router.delete('/:id', deleteDonation)
 
 module.exports = router
