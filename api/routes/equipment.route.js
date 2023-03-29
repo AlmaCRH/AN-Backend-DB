@@ -11,16 +11,17 @@ const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('
 
 
 
+//Volunteer
+router.get('/stuff', checkAuth, checkVolunteer, getAllEquipments)
+router.get('/:id', checkAuth, checkVolunteer, getOneEquipment)
+router.post('/', checkAuth, checkVolunteer, createEquipment)
+
 
 //Admins
-router.get('/', checkAuth, checkAdmin, getAllEquipments)
-
+router.get('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getAllEquipments)
 router.get('/:id', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getOneEquipment)
-
 router.post('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, createEquipment)
-
 router.put('/:id', checkAuth, checkAdmin, updateEquipment)
-
 router.delete('/:id', checkAuth, checkAdmin, deleteEquipment)
 
 module.exports = router
