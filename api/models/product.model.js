@@ -53,6 +53,7 @@ const Product = connection.define(
             }
         }
     },
+    { createdAt: false },
     { updatedAt: false }
 )
 

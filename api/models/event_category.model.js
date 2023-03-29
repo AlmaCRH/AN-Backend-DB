@@ -15,6 +15,7 @@ const EventCategory = connection.define (
             }
         }
     },
+    { createdAt: false },
     { updatedAt: false }
 )
 

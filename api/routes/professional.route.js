@@ -6,12 +6,13 @@ const {
     createProfessional,
     updateProfessional,
     deleteProfessional } = require('../controllers/professional.controller')
+const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('../middlewares/auth')
 
 
-router.get('/', getAllProfessionals)
-router.get('/:id', getOneProfessional)
-router.post('/', createProfessional)
-router.put('/:id', updateProfessional)
-router.delete('/:id', deleteProfessional)
+router.get('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getAllProfessionals)
+router.get('/:id', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getOneProfessional)
+router.post('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, createProfessional)
+router.put('/:id',checkAuth, checkAdmin, updateProfessional)
+router.delete('/:id', checkAuth, checkAdmin, deleteProfessional)
 
 module.exports = router
