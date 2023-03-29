@@ -1,12 +1,12 @@
 const router = require('express').Router()
 
-const { } = require('../controllers/event_category.controller')
+const { getAllCategories, getOneCategory, updateCategory, createCategory, deleteCategory } = require('../controllers/event_category.controller')
 
 
-router.get('/',)
-router.get('/:id',)
-router.post('/',)
-router.put('/:id',)
-router.delete('/:id',)
+router.get('/', getAllCategories)
+router.get('/:categoryId', getOneCategory)
+router.post('/', createCategory)
+router.put('/:categoryId', updateCategory)
+router.delete('/:categoryId', deleteCategory)
 
 module.exports = router

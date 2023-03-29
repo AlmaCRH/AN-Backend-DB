@@ -13,10 +13,26 @@ const Donor = connection.define(
                 },
                 is: {
                     args: /^[A-Z]{2}(?:[ ]?[0-9]){18,24}$/,
+
                     msg: 'Bank account has not a valid value',
                 },
             },
-		}
+		},
+		member_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Member id cannot be empty'
+                }
+            }
+        },
+        createdAt: {
+            type: DataTypes.STRING,
+            defaultValue: function () {
+                return new Date()
+            }
+		},
     }
 )
 
