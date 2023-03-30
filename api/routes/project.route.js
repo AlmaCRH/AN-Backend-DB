@@ -10,8 +10,8 @@ const {
 const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('../middlewares/auth')
 
 
-router.get('/', getAllProjects)
-router.get('/:id', getOneProject)
+router.get('/', checkAuth, checkAdmin, getAllProjects)
+router.get('/:id', checkAuth, getOneProject)
 router.post('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, createProject)
 router.put('/:id', checkAuth, checkAdmin, updateProject)
 router.delete('/:id', checkAuth, checkAdmin, deleteProject)

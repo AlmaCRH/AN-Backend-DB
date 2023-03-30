@@ -51,14 +51,18 @@ Moreover we want to provide to their sponsors and volunteers a clearest envirorm
 | DELETE | /members/:memberId        | YES   | Members | Remove one user            | member_id                  | "Member deleted"                     |
 
 ### Donors Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /donors                   | YES   | Admin | Get all donors | -               | [{ donors }]           |
 | GET    | /donors/donorId           | YES   | Admin/Donor | Get one donor          | donor_id                   | { donor }                            |
 | PUT    | /donors/donorId/member/:memberId  | YES   | Admin/Donor | Update donor   | donor_id                   | "Donor updated"                      |
 | DELETE | /donors/:id               | YES   | Admin/Donor | Remove one donors      | donor_id                   | "Profile deleted"                    |
 
-
 ### Volunteers Endpoints
 
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /volunteers                | YES   | Admin | Get all volunteers           | -                          | [{ volunteers }]                    |
 | GET    | /volunteers/:volunteerId   | YES   | Admin/Volunteer | Get one volunteer  | volunteers_id              | { volunteer }                       |
 | PUT    | /volunteers/:volunteersId  | YES   | Admin/Volunteer | Update volunteer   | volunteers_id              | "Volunteer updated"                 |
@@ -66,6 +70,9 @@ Moreover we want to provide to their sponsors and volunteers a clearest envirorm
 
 
 ### Projects Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /projects                  | N/A   | All | Get all projects             | -                          | [{ projects }]                      |
 | GET    | /projects/:projectId       | N/A   | All | Get one project              | projects_id                | { project }                         |
 | PUT    | /projects/:projectsId      | YES   | Admin | Update project             | projects_id                | "Project updated"                   |
@@ -73,15 +80,19 @@ Moreover we want to provide to their sponsors and volunteers a clearest envirorm
 | DELETE | /projects/:id              | YES   | Admin | Remove one project         | projects_id                | "Project deleted"                   |
 
 ### Events Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /events                    | N/A   | All | Get all events               | -                          | [{ events }]                        |
 | GET    | /events/:eventId           | N/A   | All | Get one event                | events_id                  | { event }                           |
 | PUT    | /events/:eventsId          | YES   | Admin | Update event               | events_id                  | "Event updated"                     |
 | POST   | /events                    | YES   | Admin | Create one event           | req.body                   | "Event created"                     |
 | DELETE | /events/:id                | YES   | Admin | Remove one event           | events_id                  | "Event deleted"                     |
 
-
-
 ### Equipment Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /equipment                 | YES   | Admin | Get all equipment        | -                          | [{ equipment }]                        |
 | GET    | /equipment/:equipmentId    | YES   | Admin | Get one equipment        | equipment_id               | { equipment }                          |
 | PUT    | /equipment/:equipmentId    | YES   | Admin | Update equipment         | equipment_id               | "Equipment updated"                    |
@@ -89,8 +100,10 @@ Moreover we want to provide to their sponsors and volunteers a clearest envirorm
 | POST   | /equipment                 | YES   | Admin/Volunteer| Create one equipment| req.body               | "Equipment created"                    |
 | DELETE | /equipment/:equipmentId    | YES   | Admin | Remove one equipment     | equipment_id               | "Equipment deleted"                    |
 
-
 ### Products Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /products                  | N/A   | All | Get all products           | -                            [{ products }]                          |
 | GET    | /products/:productId       | N/A   | All | Get one product            | product_id                  | { product }                            |
 | PUT    | /products/:productId       | YES   | Admin | Update product           | product_id                  | "Product updated"                      |
@@ -99,16 +112,18 @@ Moreover we want to provide to their sponsors and volunteers a clearest envirorm
 
 ### Donations Endpoints
 
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /donations                 | YES   | Admin/Donor | Get all donations  | -                           | [{ donations }]                        |
 | GET    | /donations/:donationId     | YES   | Admin/Donor | Get one donation   | donation_id                 | { donation }                           |
 | PUT    | /donations/:donationId     | YES   | Admin | Update donation          | donation_id                 | "Donation updated"                     |
 | POST   | /donations                 | YES   | Admin/Donor | Create one donation| req.body                    | "Donation created"                     |
 | DELETE | /donations/:id             | YES   | Admin | Remove one donation      | donation_id                 | "Donation deleted"                     |
 
-| PUT    | /donors/:memberId          | YES   | Admin | Update donor             | donor_id                    | "Donor updated"                        |
-
-
 ### Professionals Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /professionals             | YES   | Admin | Get all professionals     | -                          | [{ professionals }]                    |
 | GET    | /professionals/:professionalId| YES| Admin | Get one professional      | professionalId             | { donation }                           |
 | PUT    | /professionals/:professionalId| YES| Admin | Update professional       | professionalId             | "Professional updated"                 |
