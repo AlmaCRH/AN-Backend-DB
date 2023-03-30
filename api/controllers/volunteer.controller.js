@@ -1,6 +1,7 @@
 const Project = require('../models/project.model')
 const Volunteer = require('../models/volunteer.model')
 
+
 async function getAllVolunteer(req, res) {
     try {
         const volunteer = await Volunteer.findAll({ paranoid: false })

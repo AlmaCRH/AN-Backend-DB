@@ -1,12 +1,14 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Event = connection.define(
     'event',
     {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 notEmpty: {
                     msg: 'Please, don\'t leave the field empty'
@@ -56,5 +58,6 @@ const Event = connection.define(
         },
     }
 )
+
 
 module.exports = Event
