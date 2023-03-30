@@ -1,7 +1,7 @@
 const Project = require('../models/project.model')
 const Volunteer = require('../models/volunteer.model')
 const Professional = require('../models/professional.model')
-
+const Equipment = require('../models/equipment.model')
 
 
 async function getAllProjects(req, res) {
@@ -32,6 +32,11 @@ async function getOneProject(req, res) {
 
 async function createProject(req, res) {
     try {
+        const equipment = await Equipment.create({
+            name: req.body.equipmentName,
+            description: req.body.equipmentDescription,
+            cost: req.body.equipmentCost
+        })
         const project = await Project.create(req.body)
         const volunteer = await Volunteer.findByPk(req.body.volunteerId)
         await project.addVolunteer(volunteer)
@@ -41,6 +46,7 @@ async function createProject(req, res) {
             }
         })
         await project.addProfessional(professional)
+        await project.addEquipment(equipment)
         return res.status(200).json({ message: 'Project created', project: project })
     } catch (error) {
         res.status(500).send(error.message)
