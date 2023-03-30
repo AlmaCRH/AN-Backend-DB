@@ -32,19 +32,19 @@ async function getOneProject(req, res) {
 
 async function createProject(req, res) {
     try {
+        const project = await Project.create(req.body)
+        const volunteer = await Volunteer.findByPk(req.body.volunteerId)
         const equipment = await Equipment.create({
             name: req.body.equipmentName,
             description: req.body.equipmentDescription,
             cost: req.body.equipmentCost
         })
-        const project = await Project.create(req.body)
-        const volunteer = await Volunteer.findByPk(req.body.volunteerId)
-        await project.addVolunteer(volunteer)
         const professional = await Professional.findOne({
             where: {
                 name: req.body.profession
             }
         })
+        await project.addVolunteer(volunteer)
         await project.addProfessional(professional)
         await project.addEquipment(equipment)
         return res.status(200).json({ message: 'Project created', project: project })
@@ -87,6 +87,7 @@ async function deleteProject(req, res) {
         return res.status(500).send(error.message)
     }
 }
+
 
 module.exports = {
     getAllProjects,

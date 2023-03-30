@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Event = connection.define(
     'event',
     {
@@ -57,5 +58,6 @@ const Event = connection.define(
         },
     }
 )
+
 
 module.exports = Event

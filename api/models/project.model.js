@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Project = connection.define(
 	'project',
 	{
@@ -66,5 +67,6 @@ const Project = connection.define(
         }
     },
 )
+
 
 module.exports = Project

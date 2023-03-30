@@ -71,10 +71,6 @@ async function deleteDonor(req, res) {
 }
 
 
-
-
-
-
 module.exports = {
     getAllDonors,
     deleteDonor,

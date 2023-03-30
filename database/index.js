@@ -22,7 +22,6 @@ async function syncModels(value) {
 		alter: { alter: true },
 		force: { force: true },
 	}
-
 	try {
 		await connection.sync(state[value] || '')
 		console.log(`All models were synchronized successfully using sync(${JSON.stringify(state[value]) || ''}).`)
@@ -30,5 +29,6 @@ async function syncModels(value) {
 		throw error
 	}
 }
+
 
 module.exports = { connection, checkConnection, syncModels }
