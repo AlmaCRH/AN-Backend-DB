@@ -5,15 +5,18 @@ const {
     deleteDonor,
     updateDonor,
     createDonor,
-    getOneDonor
+    getOneDonor,
+    getMyDonations
  } = require('../controllers/donor.controller')
-const { checkAuth, checkAdmin, checkDonor } = require('../middlewares/auth')
 
+const { checkAuth, checkAdmin } = require('../middlewares/auth')
 
+//Admin
 router.get('/',checkAuth, checkAdmin, getAllDonors)
-router.get('/:id', checkAuth, checkAdmin, checkDonor, getOneDonor)
+router.get('/:id', checkAuth, checkAdmin, getOneDonor)
 router.post('/', checkAuth, checkAdmin, createDonor)
-router.put('/:id', checkAuth, checkAdmin, checkDonor, updateDonor)
-router.delete('/:id', checkAuth, checkAdmin, checkDonor, deleteDonor)
+router.put('/:id', checkAuth, checkAdmin, updateDonor)
+router.delete('/:id', checkAuth, checkAdmin, deleteDonor)
+
 
 module.exports = router

@@ -3,7 +3,6 @@ const { connection } = require('../../database')
 
 const Volunteer = connection.define(
 	'volunteer',
-
 )
 
 
