@@ -19,9 +19,6 @@ const {
 router.get('/myDonations', checkAuth, checkDonor, getMyDonations)
 
 
-const { checkAdmin, checkAuth } = require('../middlewares/auth')
-
-
 //Admin
 router.get('/', checkAuth, checkAdmin, getAllDonations)
 
@@ -29,8 +26,6 @@ router.get('/:id', checkAuth, checkAdmin, getOneDonation)
 router.post('/', checkAuth, checkDonor, createDonation)
 router.put('/:id', checkAuth, checkAdmin, updateDonation)
 router.delete('/:id', checkAuth, checkAdmin, deleteDonation)
-
-
 
 
 module.exports = router
