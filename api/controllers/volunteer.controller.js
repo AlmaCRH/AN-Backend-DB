@@ -1,3 +1,4 @@
+const Project = require('../models/project.model')
 const Volunteer = require('../models/volunteer.model')
 
 async function getAllVolunteer(req, res) {
@@ -70,7 +71,24 @@ async function deleteVolunteer(req, res) {
     }
 }
 
+async function getMyProjects(req, res) {
+    try {
+        const volunteer = await Volunteer.findByPk(res.locals.member.id)
 
+        const projects = await Project.findAll({
+            where: {
+                
+            }
+        })
+        if (volunteer) {
+            return res.status(200).json(volunteer)
+        } else {
+            return res.status(404).send('No Volunteers found')
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
 
 
 module.exports = {
@@ -78,5 +96,6 @@ module.exports = {
     deleteVolunteer,
     updateVolunteer,
     createVolunteer,
-    getOneVolunteer
+    getOneVolunteer,
+    getMyProjects
 }
