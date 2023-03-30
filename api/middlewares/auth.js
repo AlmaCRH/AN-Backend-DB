@@ -29,7 +29,7 @@ const checkAuth = (req, res, next) => {
 }
 
 const checkDonor = (req, res, next) => {
-    if (res.locals.member.role === 'donor' || res.locals.member.role === 'admin') {
+    if (res.locals.member.role === 'donor' || res.locals.member.role === 'admin' || res.locals.member.role === 'volunteer_donor') {
         next()
     } else {
         res.status(401).send('This is just for Donors!')
@@ -38,7 +38,7 @@ const checkDonor = (req, res, next) => {
 
 
 const checkVolunteer = (req, res, next) => {
-    if (res.locals.member.role === 'volunteer'|| res.locals.member.role === 'admin') {
+    if (res.locals.member.role === 'volunteer' || res.locals.member.role === 'admin' || res.locals.member.role === 'volunteer_donor') {
         next()
         }
      else {
@@ -46,15 +46,6 @@ const checkVolunteer = (req, res, next) => {
     }
 }
 
-
-const checkVolunteerDonor = (req, res, next) => {
-    if (res.locals.member.role === 'volunteer_donor') {
-        next()
-    } else {
-        return res.status(401).send('You need to be a volunteer and a donor for access this field')
-
-    }
-}
 
 
 
@@ -64,7 +55,6 @@ const checkVolunteerDonor = (req, res, next) => {
 module.exports = {
     checkAuth,
     checkAdmin,
-    checkVolunteerDonor,
     checkVolunteer,
     checkDonor
 }

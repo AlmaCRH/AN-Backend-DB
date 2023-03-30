@@ -7,7 +7,7 @@ const {
     updateProject,
     deleteProject
  } = require('../controllers/project.controller')
-const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('../middlewares/auth')
+const { checkAuth, checkAdmin, checkVolunteer } = require('../middlewares/auth')
 
 
 router.get('/', getAllProjects)

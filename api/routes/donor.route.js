@@ -5,8 +5,7 @@ const {
     deleteDonor,
     updateDonor,
     createDonor,
-    getOneDonor,
-    getMyDonations
+    getOneDonor
  } = require('../controllers/donor.controller')
 const { checkAuth, checkAdmin } = require('../middlewares/auth')
 

@@ -7,13 +7,13 @@ const {
     createVolunteer,
     getOneVolunteer } = require('../controllers/volunteer.controller')
 
-const { checkAuth, checkAdmin, checkVolunteerDonor } = require('../middlewares/auth')
+const { checkAuth, checkAdmin } = require('../middlewares/auth')
 
 
 router.get('/', checkAuth, checkAdmin, getAllVolunteer)
-router.get('/:id', checkAuth, checkAdmin, createVolunteer, checkVolunteerDonor, getOneVolunteer)
+router.get('/:id', checkAuth, checkAdmin, createVolunteer, getOneVolunteer)
 router.post('/', checkAuth, checkAdmin, createVolunteer)
-router.put('/:id', checkAuth, checkAdmin, createVolunteer, checkVolunteerDonor, updateVolunteer)
-router.delete('/:id', checkAuth, checkAdmin, createVolunteer, checkVolunteerDonor, deleteVolunteer)
+router.put('/:id', checkAuth, checkAdmin, createVolunteer, updateVolunteer)
+router.delete('/:id', checkAuth, checkAdmin, createVolunteer, deleteVolunteer)
 
 module.exports = router
