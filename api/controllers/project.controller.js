@@ -124,5 +124,6 @@ module.exports = {
     getOneProject,
     createProject,
     updateProject,
-    deleteProject
+    deleteProject,
+    getMyDonations
 }
