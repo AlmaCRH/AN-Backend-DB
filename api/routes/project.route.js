@@ -10,6 +10,7 @@ const {
 const { checkAuth, checkAdmin, checkVolunteer } = require('../middlewares/auth')
 
 
+
 router.get('/', getAllProjects)
 router.get('/:id', getOneProject)
 router.post('/', checkAuth, checkVolunteer, createProject)

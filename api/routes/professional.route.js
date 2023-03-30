@@ -6,6 +6,7 @@ const {
     createProfessional,
     updateProfessional,
     deleteProfessional } = require('../controllers/professional.controller')
+
 const { checkAuth, checkAdmin } = require('../middlewares/auth')
 
 

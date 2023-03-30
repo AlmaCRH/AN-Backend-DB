@@ -29,15 +29,18 @@ const checkAuth = (req, res, next) => {
 }
 
 const checkDonor = (req, res, next) => {
+
     if (res.locals.member.role === 'donor' || res.locals.member.role === 'admin' || res.locals.member.role === 'volunteer_donor') {
+
         next()
     } else {
-        res.status(401).send('This is just for Donors!')
+        res.status(401).send('This is just for Donors or Volunteer_donors!')
     }
 }
 
 
 const checkVolunteer = (req, res, next) => {
+
     if (res.locals.member.role === 'volunteer' || res.locals.member.role === 'admin' || res.locals.member.role === 'volunteer_donor') {
         next()
         }
@@ -45,6 +48,7 @@ const checkVolunteer = (req, res, next) => {
         return res.status(401).send('This is just for Volunteers!')
     }
 }
+
 
 
 
