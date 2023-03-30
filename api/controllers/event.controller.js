@@ -53,10 +53,15 @@ async function updateEvent(req, res) {
 
 async function createEvent(req, res) {
     try {
-        //const eventCategory = await EventCategory.findAll()
+        const eventCategory = await EventCategory.findOne({
+            where: {
+                name: req.body.category
+            }
+        })
         const event = await Event.create(req.body)
         const volunteer = await Volunteer.findByPk(req.body.volunteerId);
         await event.addVolunteer(volunteer);
+        await eventCategory.addEvent(event)
         if (event) {
             return res.status(200).json({message: 'Event created', event: event})
 

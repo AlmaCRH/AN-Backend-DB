@@ -16,13 +16,13 @@ const signUp = async (req, res) => {
         if (req.body.role === 'donor') {
             await member.createDonor()
         }
-        const profession = req.body.profession;
-        const professional = await Proffesional.findAll({
-            where: {
-                name: profession
-            }
-        })
         if (req.body.role === 'volunteer') {
+            const profession = req.body.profession;
+            const professional = await Proffesional.findAll({
+                where: {
+                    name: profession
+                }
+            })
             await member.createVolunteer({
                 memberId: member.id, 
                 professionalId: professional[0].id

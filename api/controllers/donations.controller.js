@@ -46,12 +46,16 @@ async function createDonation(req, res) {
         //         type: req.body.type
         //     });
         // }
+        const donor = await Donor.findOne({
+            where: {
+                memberId: res.locals.member.id
+            }
+        })
         const donation = await Donations.create({
             amount: req.body.amount,
             type: req.body.type,
-            donorId: donorId
+            donorId: donor.id
         });
-        
         return res.status(200).json({ message: 'Donation created', donation: donation })
     } catch (error) {
         res.status(500).send(error.message)
