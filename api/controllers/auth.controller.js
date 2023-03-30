@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const Donor = require('../models/donor.model')
 const Volunteer = require('../models/volunteer.model')
+const Proffesional = require('../models/professional.model')
+
 
 const signUp = async (req, res) => {
     try {
@@ -15,7 +17,16 @@ const signUp = async (req, res) => {
             await member.createDonor()
         }
         if (req.body.role === 'volunteer') {
-            await member.createVolunteer()
+            const profession = req.body.profession;
+            const professional = await Proffesional.findAll({
+                where: {
+                    name: profession
+                }
+            })
+            await member.createVolunteer({
+                memberId: member.id, 
+                professionalId: professional[0].id
+            });
         }
         return res.status(200).json(member)
     } catch (error) {
@@ -38,10 +49,7 @@ const login = async (req, res) => {
             if(!result) {
                 return res.status(403).send('Error: Empty mail or password')
             }
-            const token = jwt.sign({ email: member.email }, process.env.SECRET, {expiresIn: '7h'})
-            
-
-
+            const token = jwt.sign({ email: member.email }, 'secret', {expiresIn: '7h'})
             return res.status(200).json({ token })
         })
     } 
