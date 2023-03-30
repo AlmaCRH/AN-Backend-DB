@@ -3,12 +3,11 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const Proffesional = require('../models/professional.model')
 
-
 const signUp = async (req, res) => {
     try {
         req.body.password = bcrypt.hashSync(req.body.password, 10)
         if (req.body.role === 'admin') {
-            return res.status(500).json('Ande vas primo')
+            return res.status(500).json('You can\'t declare yourself as an admin')
         }
         const member = await Member.create(req.body)
         if (req.body.role === 'donor') {
