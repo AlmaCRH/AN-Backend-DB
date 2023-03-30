@@ -49,16 +49,6 @@ const checkVolunteer = (req, res, next) => {
 }
 
 
-/* const checkVolunteerDonor = (req, res, next) => {
-    if (res.locals.member.role === 'volunteer_donor') {
-        next()
-    } else {
-        return res.status(401).send('You need to be a volunteer and a donor for access this field')
-
-    }
-} */
-
-
 
  
 
@@ -66,7 +56,6 @@ const checkVolunteer = (req, res, next) => {
 module.exports = {
     checkAuth,
     checkAdmin,
-    checkVolunteerDonor,
     checkVolunteer,
-    checkDonor,
+    checkDonor
 }
