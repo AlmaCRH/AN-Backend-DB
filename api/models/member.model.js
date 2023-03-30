@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Member = connection.define(
 	'member',
 	{
@@ -40,17 +41,10 @@ const Member = connection.define(
             type: DataTypes.STRING
         },
         role: {
-            type: DataTypes.ENUM('admin','donor', 'volunteer', 'volunteer_donor' )
-        },
-        createdAt: {
-            type: DataTypes.STRING,
-            defaultValue: function () {
-                return new Date()
-            }
-		},
+            type: DataTypes.ENUM('admin','donor', 'volunteer','volunteer_donor')
+        }
     }
 )
-
 
 
 module.exports = Member

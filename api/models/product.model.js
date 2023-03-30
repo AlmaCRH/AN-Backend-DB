@@ -1,39 +1,49 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Product = connection.define(
     'product',
     {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
-                notEmpty: true,
-                msg: 'Please, don\'t leave the field empty'
+                notEmpty: {
+                    msg: 'Please, don\'t leave the field empty'
+                }
+                
             }
         }, 
         description: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                notEmpty: true,
-                msg: 'Please, add a brief description of the product'
+                notEmpty: {
+                    msg: 'Please, add a brief description of the product'
+                }
+                
             }
         },
         price: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10,2),
             allowNull: false,
             validate: {
-                notEmpty: true,
-                msg: 'Add a price to your product'
+                notEmpty: {
+                    msg: 'Add a price to your product'
+                }
+                
             }
         },
         category: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true,
-                msg: 'Add a category to your product'
+                notEmpty: {
+                    msg: 'Add a category to your product'
+                }
+                
             }
         },
         stock: {
@@ -44,9 +54,9 @@ const Product = connection.define(
             }
         }
     },
+    { createdAt: false },
     { updatedAt: false }
 )
-
 
 
 module.exports = Product

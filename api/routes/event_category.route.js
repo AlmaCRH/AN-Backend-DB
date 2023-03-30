@@ -1,12 +1,23 @@
 const router = require('express').Router()
 
-const { } = require('../controllers/event_category.controller')
+const {
+    getAllCategories,
+    getOneCategory,
+    updateCategory,
+    createCategory,
+    deleteCategory 
+} = require('../controllers/event_category.controller')
+
+const {
+    checkAuth,
+    checkAdmin 
+} = require('../middlewares/auth')
 
 
-router.get('/',)
-router.get('/:id',)
-router.post('/',)
-router.put('/:id',)
-router.delete('/:id',)
+router.get('/', checkAuth, checkAdmin, getAllCategories)
+router.get('/:categoryId', checkAuth, checkAdmin, getOneCategory)
+router.post('/', checkAuth, checkAdmin, createCategory)
+router.put('/:categoryId', checkAuth, checkAdmin, updateCategory)
+router.delete('/:categoryId', checkAuth, checkAdmin, deleteCategory)
 
 module.exports = router

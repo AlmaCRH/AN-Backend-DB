@@ -1,9 +1,19 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Project = connection.define(
 	'project',
 	{
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Name cannot be empty'
+                }
+            }
+        },
 		target: {
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -54,16 +64,9 @@ const Project = connection.define(
         },
         status: {
             type: DataTypes.ENUM('acepted', 'denied', 'draft')
-        },
-        createdAt: {
-            type: DataTypes.STRING,
-            defaultValue: function () {
-                return new Date()
-            }
-		},
+        }
     },
 )
-
 
 
 module.exports = Project

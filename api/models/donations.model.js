@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Donations = connection.define(
 	'donations',
 	{
@@ -19,16 +20,9 @@ const Donations = connection.define(
                     msg: 'Type cannot be empty'
                 }
             }
-        },
-        createdAt: {
-            type: DataTypes.STRING,
-            defaultValue: function () {
-                return new Date()
-            }
-		},
+        }
     }
 )
-
 
 
 module.exports = Donations
