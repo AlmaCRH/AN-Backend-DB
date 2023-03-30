@@ -1,5 +1,6 @@
 const Member = require('../models/member.model')
 
+
 async function getAllMembers(req, res) {
     try {
         const member = await Member.findAll({ paranoid: false })
@@ -70,7 +71,6 @@ async function deleteMember(req, res) {
     }
 }
 
-
 async function getMyMember(req, res) {
     try {
         const member = await Member.findByPk(res.locals.member.id)
@@ -83,8 +83,6 @@ async function getMyMember(req, res) {
         res.status(500).send(error.message)
     }
 }
-
-
 
 async function updateMyMember(req, res) {
     try {

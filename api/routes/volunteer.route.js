@@ -1,13 +1,17 @@
 const router = require('express').Router()
 
-const { 
+const {
     getAllVolunteer,
     deleteVolunteer,
     updateVolunteer,
     createVolunteer,
-    getOneVolunteer } = require('../controllers/volunteer.controller')
+    getOneVolunteer 
+} = require('../controllers/volunteer.controller')
 
-const { checkAuth, checkAdmin } = require('../middlewares/auth')
+const {
+    checkAuth,
+    checkAdmin 
+} = require('../middlewares/auth')
 
 
 router.get('/', checkAuth, checkAdmin, getAllVolunteer)

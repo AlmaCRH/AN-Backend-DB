@@ -1,13 +1,18 @@
 const router = require('express').Router()
 
-const { 
+const {
     getAllEquipments,
     getOneEquipment,
     createEquipment,
     updateEquipment,
-    deleteEquipment } = require('../controllers/equipment.controller')
+    deleteEquipment 
+} = require('../controllers/equipment.controller')
 
-const { checkAuth, checkAdmin, checkVolunteer } = require('../middlewares/auth')
+const {
+    checkAuth,
+    checkAdmin,
+    checkVolunteer 
+} = require('../middlewares/auth')
 
 //Volunteer
 router.get('/stuff', checkAuth, checkVolunteer, getAllEquipments)

@@ -1,13 +1,18 @@
 const router = require('express').Router()
 
-const { 
+const {
     getAllProjects,
     getOneProject,
     createProject,
     updateProject,
     deleteProject
- } = require('../controllers/project.controller')
-const { checkAuth, checkAdmin, checkVolunteer } = require('../middlewares/auth')
+} = require('../controllers/project.controller')
+
+const {
+    checkAuth,
+    checkAdmin,
+    checkVolunteer 
+} = require('../middlewares/auth')
 
 
 

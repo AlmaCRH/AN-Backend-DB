@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { connection } = require('../../database')
 
+
 const Product = connection.define(
     'product',
     {
@@ -56,7 +57,6 @@ const Product = connection.define(
     { createdAt: false },
     { updatedAt: false }
 )
-
 
 
 module.exports = Product

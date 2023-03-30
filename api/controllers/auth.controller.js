@@ -1,15 +1,13 @@
 const Member = require('../models/member.model')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const Donor = require('../models/donor.model')
-const Volunteer = require('../models/volunteer.model')
 const Proffesional = require('../models/professional.model')
 
 
 const signUp = async (req, res) => {
     try {
         req.body.password = bcrypt.hashSync(req.body.password, 10)
-        if(req.body.role === 'admin'){
+        if (req.body.role === 'admin') {
             return res.status(500).json('Ande vas primo')
         }
         const member = await Member.create(req.body)
@@ -24,7 +22,7 @@ const signUp = async (req, res) => {
                 }
             })
             await member.createVolunteer({
-                memberId: member.id, 
+                memberId: member.id,
                 professionalId: professional[0].id
             });
         }
@@ -35,24 +33,25 @@ const signUp = async (req, res) => {
     }
 }
 
-
 const login = async (req, res) => {
     try {
-        const member = await Member.findOne({where: 
-            {email: req.body.email
-            }})
+        const member = await Member.findOne({
+            where:
+            {
+                email: req.body.email
+            }
+        })
         if (!member) {
             return res.status(500).send('Error: Empty mail or password')
         }
-
         bcrypt.compare(req.body.password, member.password, (err, result) => {
-            if(!result) {
+            if (!result) {
                 return res.status(403).send('Error: Empty mail or password')
             }
-            const token = jwt.sign({ email: member.email }, 'secret', {expiresIn: '7h'})
+            const token = jwt.sign({ email: member.email }, 'secret', { expiresIn: '7h' })
             return res.status(200).json({ token })
         })
-    } 
+    }
     catch (err) {
         console.error(err)
     }
