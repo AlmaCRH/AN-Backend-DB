@@ -6,11 +6,21 @@ const {
     createEquipment,
     updateEquipment,
     deleteEquipment } = require('../controllers/equipment.controller')
-const { checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor } = require('../middlewares/auth')
 
-router.get('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getAllEquipments)
-router.get('/:id', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, getOneEquipment)
-router.post('/', checkAuth, checkAdmin, checkVolunteer, checkVolunteerDonor, createEquipment)
+const { checkAuth, checkAdmin, checkVolunteer } = require('../middlewares/auth')
+
+
+
+//Volunteer
+router.get('/stuff', checkAuth, checkVolunteer, getAllEquipments)
+router.get('/:id', checkAuth, checkVolunteer, getOneEquipment)
+router.post('/', checkAuth, checkVolunteer, createEquipment)
+
+
+//Admins
+router.get('/', checkAuth, checkAdmin, checkVolunteer, getAllEquipments)
+router.get('/:id', checkAuth, checkAdmin, checkVolunteer, getOneEquipment)
+router.post('/', checkAuth, checkAdmin, checkVolunteer, createEquipment)
 router.put('/:id', checkAuth, checkAdmin, updateEquipment)
 router.delete('/:id', checkAuth, checkAdmin, deleteEquipment)
 

@@ -1,4 +1,5 @@
 const Donations = require('../models/donations.model')
+const Product = require('../models/product.model')
 
 async function getAllDonations(req, res) {
     try {
@@ -29,6 +30,14 @@ async function getOneDonation(req, res) {
 async function createDonation(req, res) {
     try {
         const donation = await Donations.create(req.body)
+        const product = await Product.findOne({
+            where: {
+                name: req.body.name
+            }
+        })
+            
+
+        await product.addDonation(donation)
         return res.status(200).json({ message: 'Donation created', donation: donation })
     } catch (error) {
         res.status(500).send(error.message)

@@ -8,10 +8,12 @@ const {
     getOneDonation,
     getMyDonations
  } = require('../controllers/donations.controller')
+ 
 const { checkAdmin, checkAuth } = require('../middlewares/auth')
 
 //Admin
 router.get('/',checkAuth, checkAdmin, getAllDonations)
+
 router.get('/:id', checkAuth, checkAdmin, getOneDonation)
 router.post('/',checkAuth, createDonation)
 router.put('/:id', checkAuth, checkAdmin, updateDonation)

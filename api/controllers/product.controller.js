@@ -1,5 +1,6 @@
 const Product = require('../models/product.model')
 
+
 async function getAllProducts(req, res) {
     try {
         const products = await Product.findAll()
@@ -17,8 +18,7 @@ async function getAllProducts(req, res) {
 
 async function getOneProduct(req, res) {
     try {
-        const product = await Product.findByPk(req.params.productId)
-
+        const product = await Product.findOne(req.params.productId)
         if (product) {
             return res.status(200).json(product)
         } else {
