@@ -1,131 +1,99 @@
-# FUNDRAISING FOLDER
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-## Introduction
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-[AfricaNdoto](https://africandoto.org/) it's an idea that was born in 2016 with the goal to provide better opportunities for the kids and families in Tanzania. That idea turns into a NGO that works to improve the future of many people.
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-Nowadays, the NGO has the goal to have their activity recognized in Spain and continuing work in projects to offer educational oportunities to Tanzanian children and to empower Tanzanian women. That's the main reason why we work with them to help to improve their website and their fundraising system.
+## Description
 
-Moreover we want to provide to their sponsors and volunteers a clearest envirorment to get informed and updated about the activity and projects of the organization.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Users profiles.
+## Project setup
 
-- Donor.
-- Volunteer.
-- Admin.
+```bash
+$ npm install
+```
 
-## Objectives:
+## Compile and run the project
 
-- Support.
-- Transparecy.
-- Information.
-- Conciousness.
+```bash
+# development
+$ npm run start
 
-## Development objectives.
+# watch mode
+$ npm run start:dev
 
-- Improve donation and fundraising system.
-- Register of new donors and volunteers.
-- New projects catalogue.
-- Companies sponsorship.
-- Events and proyects calendars.
-- Volunteer job listing.
-- Transparency web page.
+# production mode
+$ npm run start:prod
+```
 
-## ENDPOINTS.
+## Run tests
 
-### Auth Endpoints
+```bash
+# unit tests
+$ npm run test
 
-| METHOD | ENDPOINT     | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                                 | RETURNS |
-| ------ | ------------ | ----- | ---- | --------------------- | ----------------------------------------------------------- | ------- |
-| POST   | /auth/signup | -     | -    | User Sign Up          | name, lastName, email, password, date_of_birth, phone, id_number,adress,role, | token   |
-| POST   | /auth/login  | -     | -    | Delete skills form DB | email, password                                             | token   |
+# e2e tests
+$ npm run test:e2e
 
-### Members Endpoints
+# test coverage
+$ npm run test:cov
+```
 
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /members                  | YES   | Admin | Get all users                | -                          | [{ member }]                         |
-| GET    | /members/:memberId        | YES   | Members | Get one user               | member_id                  | { member }                           |
-| PUT    | /members/:memberId        | YES   | Members | Update user                | member_id                  | "Member updated"                     |
-| POST   | /members                  | YES   | Admin | Create one user            | req.body                   | "Member created"                     |
-| DELETE | /members/:memberId        | YES   | Members | Remove one user            | member_id                  | "Member deleted"                     |
+## Deployment
 
-### Donors Endpoints
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /donors                   | YES   | Admin | Get all donors | -               | [{ donors }]           |
-| GET    | /donors/donorId           | YES   | Admin/Donor | Get one donor          | donor_id                   | { donor }                            |
-| PUT    | /donors/donorId/member/:memberId  | YES   | Admin/Donor | Update donor   | donor_id                   | "Donor updated"                      |
-| DELETE | /donors/:id               | YES   | Admin/Donor | Remove one donors      | donor_id                   | "Profile deleted"                    |
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
-### Volunteers Endpoints
+```bash
+$ npm install -g mau
+$ mau deploy
+```
 
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /volunteers                | YES   | Admin | Get all volunteers           | -                          | [{ volunteers }]                    |
-| GET    | /volunteers/:volunteerId   | YES   | Admin/Volunteer | Get one volunteer  | volunteers_id              | { volunteer }                       |
-| PUT    | /volunteers/:volunteersId  | YES   | Admin/Volunteer | Update volunteer   | volunteers_id              | "Volunteer updated"                 |
-| DELETE | /volunteers/:id            | YES   | Admin/Volunteer | Remove one volunteer| volunteers_id             | "Profile deleted"                   |
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
+## Resources
 
-### Projects Endpoints
+Check out a few resources that may come in handy when working with NestJS:
 
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /projects                  | N/A   | All | Get all projects             | -                          | [{ projects }]                      |
-| GET    | /projects/:projectId       | N/A   | All | Get one project              | projects_id                | { project }                         |
-| PUT    | /projects/:projectsId      | YES   | Admin | Update project             | projects_id                | "Project updated"                   |
-| POST   | /projects                  | YES   | Admin/Volunteer | Create one project| req.body                  | "Project created"                   |
-| DELETE | /projects/:id              | YES   | Admin | Remove one project         | projects_id                | "Project deleted"                   |
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-### Events Endpoints
+## Support
 
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /events                    | N/A   | All | Get all events               | -                          | [{ events }]                        |
-| GET    | /events/:eventId           | N/A   | All | Get one event                | events_id                  | { event }                           |
-| PUT    | /events/:eventsId          | YES   | Admin | Update event               | events_id                  | "Event updated"                     |
-| POST   | /events                    | YES   | Admin | Create one event           | req.body                   | "Event created"                     |
-| DELETE | /events/:id                | YES   | Admin | Remove one event           | events_id                  | "Event deleted"                     |
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-### Equipment Endpoints
+## Stay in touch
 
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /equipment                 | YES   | Admin | Get all equipment        | -                          | [{ equipment }]                        |
-| GET    | /equipment/:equipmentId    | YES   | Admin | Get one equipment        | equipment_id               | { equipment }                          |
-| PUT    | /equipment/:equipmentId    | YES   | Admin | Update equipment         | equipment_id               | "Equipment updated"                    |
-| DELETE | /equipment/:equipmentId    | YES   | Admin | Remove one donors        | donor_id                   | "Profile deleted"                      |
-| POST   | /equipment                 | YES   | Admin/Volunteer| Create one equipment| req.body               | "Equipment created"                    |
-| DELETE | /equipment/:equipmentId    | YES   | Admin | Remove one equipment     | equipment_id               | "Equipment deleted"                    |
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-### Products Endpoints
+## License
 
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /products                  | N/A   | All | Get all products           | -                            [{ products }]                          |
-| GET    | /products/:productId       | N/A   | All | Get one product            | product_id                  | { product }                            |
-| PUT    | /products/:productId       | YES   | Admin | Update product           | product_id                  | "Product updated"                      |
-| POST   | /products                  | YES   | Admin | Create one product       | req.body                    | "Product created"                      |
-| DELETE | /products/:id              | YES   | Admin | Remove one product       | product_id                  | "Product deleted"                      |
-
-### Donations Endpoints
-
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /donations                 | YES   | Admin/Donor | Get all donations  | -                           | [{ donations }]                        |
-| GET    | /donations/:donationId     | YES   | Admin/Donor | Get one donation   | donation_id                 | { donation }                           |
-| PUT    | /donations/:donationId     | YES   | Admin | Update donation          | donation_id                 | "Donation updated"                     |
-| POST   | /donations                 | YES   | Admin/Donor | Create one donation| req.body                    | "Donation created"                     |
-| DELETE | /donations/:id             | YES   | Admin | Remove one donation      | donation_id                 | "Donation deleted"                     |
-
-### Professionals Endpoints
-
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
-| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /professionals             | YES   | Admin | Get all professionals     | -                          | [{ professionals }]                    |
-| GET    | /professionals/:professionalId| YES| Admin | Get one professional      | professionalId             | { donation }                           |
-| PUT    | /professionals/:professionalId| YES| Admin | Update professional       | professionalId             | "Professional updated"                 |
-| POST   | /professionals             | YES   | Admin | Create one professional   | req.body                   | "Professional created"                 |
-| DELETE | /professionals/:id         | YES   | Admin | Remove one professional   | professionalId             | "Professional deleted"                 |
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
